@@ -17,7 +17,7 @@ sh 'mvn clean package'
 stage("sonar quality check"){
 steps{
 script{
-withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonarqube') {
+withSonarQubeEnv(installationName: 'devops-scanner', credentialsId: 'sonarqube') {
 sh 'mvn sonar:sonar '
 }
 timeout(time: 1, unit: 'HOURS') {
